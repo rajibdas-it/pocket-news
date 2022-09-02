@@ -6,16 +6,20 @@ const loadCategory = () => {
 };
 
 const displayCategoryName = (categories) => {
-  console.log(categories);
+  //   console.log(categories);
   const categoriesSection = document.getElementById("categories-section");
   categories.forEach((category) => {
     categoryDiv = document.createElement("div");
     categoryDiv.classList.add("col");
     categoryDiv.innerHTML = `
-    <a href="" class="btn btn-light">${category.category_name}</a>
+    <button class="btn p-3" onclick="loadNews('${category.category_id}')">${category.category_name}</button>
     `;
     categoriesSection.appendChild(categoryDiv);
   });
+};
+
+const loadNews = (categoryId) => {
+  console.log(categoryId);
 };
 
 loadCategory();
