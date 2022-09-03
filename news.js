@@ -44,12 +44,13 @@ const displayNews = (items) => {
     alertMsg.classList.remove("d-none");
     alertMsg.innerText = `No items found`;
   }
-  // const sortItems = items.sort((a, b) => {
-  //   return b - a;
-  // });
+  //news item sorted accroding to the highest view.
+  const sortedNews = items.sort((a, b) => {
+    return b.total_view - a.total_view;
+  });
   const newsSection = document.getElementById("news-section");
   newsSection.textContent = "";
-  items.forEach((news) => {
+  sortedNews.forEach((news) => {
     const newsDiv = document.createElement("div");
     newsDiv.innerHTML = `
     <div class="mx-auto card mb-3">
