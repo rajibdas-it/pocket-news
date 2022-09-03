@@ -34,7 +34,6 @@ const displayNews = (items) => {
     alertMsg.innerText = `${items.length} items found`;
   } else {
     alertMsg.classList.remove("d-none");
-
     alertMsg.innerText = `No items found`;
   }
 };
