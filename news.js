@@ -35,17 +35,18 @@ const loadNews = (news_id) => {
 };
 
 const displayNews = (items) => {
-  alertMsg(items);
+  // alertMsg(items);
   //console.log(items);
-  // const alertMsg = document.getElementById("alert-msg");
-  // // alertMsg.classList.add("d-none");
-  // if (items.length > 0) {
-  //   alertMsg.classList.remove("d-none");
-  //   alertMsg.innerText = `${items.length} items found`;
-  // } else {
-  //   alertMsg.classList.remove("d-none");
-  //   alertMsg.innerText = `No items found`;
-  // }
+
+  const alertMsg = document.getElementById("alert-msg");
+  alertMsg.classList.add("d-none");
+  if (items.length > 0) {
+    alertMsg.classList.remove("d-none");
+    alertMsg.innerText = `${items.length} items found.`;
+  } else {
+    alertMsg.classList.remove("d-none");
+    alertMsg.innerText = `No items found`;
+  }
 
   //news item sorted accroding to the highest view.
   const sortedNews = items.sort((a, b) => {
@@ -160,22 +161,24 @@ const displayDetailsNews = (news) => {
           </div>
 
           <h1 class="mt-3">${news.title}</h1>
-          <div class="d-flex flex-row">
-           <div>
-           <img
-           style="width: 50px; height: 50px"
-           src=${news.author.img ? news.author.img : "no data found"}
-           class="img-fluid rounded-circle p-2"
-           alt=""
-         />
-           </div>
+          <div class="d-flex flex-row align-content-center">
             <div>
-            <p class="mt-3"><small>${
-              news.author.name ? news.author.name : "no data found"
-            }</small></div>
-          </div>
-          
-          <p class="mt-3">${news.details}</p>
+              <img
+              style="width: 50px; height: 50px"
+              src=${news.author.img ? news.author.img : "no data found"}
+              class="img-fluid rounded-circle p-2"
+              alt=""
+            />
+            </div>
+              <div>
+                <p class="mt-2"><small>${
+                  news.author.name ? news.author.name : "no data found"
+                }</small> | <small>${
+    news.author.published_date
+  }</small> <small><i class="fa-solid fa-eye"></i>${news.total_view}</small>
+              </div>
+            </div>                  
+          <p class="mt-1">${news.details}</p>
      
         </div>
   
@@ -191,19 +194,19 @@ const toggleSpinner = (isLoading) => {
   }
 };
 
-const alertMsg = (isMsg, category_name) => {
-  const alertMsg = document.getElementById("alert-msg");
-  if (isMsg === false) {
-    alertMsg.classList.add("d-none");
-  }
-  if (isMsg.length > 0) {
-    alertMsg.classList.remove("d-none");
-    alertMsg.innerText = `${isMsg.length} items found`;
-  } else {
-    alertMsg.classList.remove("d-none");
-    alertMsg.innerText = `No items found`;
-  }
-};
+// const alertMsg = (isMsg, category_name) => {
+//   const alertMsg = document.getElementById("alert-msg");
+//   if (isMsg === false) {
+//     alertMsg.classList.add("d-none");
+//   }
+//   if (isMsg.length > 0) {
+//     alertMsg.classList.remove("d-none");
+//     alertMsg.innerText = `${isMsg.length} items found`;
+//   } else {
+//     alertMsg.classList.remove("d-none");
+//     alertMsg.innerText = `No items found`;
+//   }
+// };
 
 loadNews("08");
 loadCategory();
