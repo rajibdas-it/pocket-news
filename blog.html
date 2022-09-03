@@ -81,7 +81,7 @@
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
-                  What are the difference between Flexbox and Grid?
+                  What are the difference between Var, Let and Const?
                 </button>
               </h2>
               <div
@@ -91,11 +91,21 @@
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  The basic difference between
-                  <strong>CSS Flexbox Layout and CSS Grid Layout </strong>
-                  is that flexbox was designed for layout in one dimension -
-                  either a row or a column. Grid was designed for
-                  two-dimensional layout - rows, and columns at the same time.
+                  In JavaScript, users can declare a variable using 3 keywords
+                  that are <strong>var, let, and const</strong>. <br />
+                  <strong>Var:</strong> The var is the oldest keyword to declare
+                  a variable in JavaScript. The scope of a var variable is
+                  functional scope. It can be updated and re-declared into the
+                  scope. It can be declared without initialization. <br />
+                  <strong>Let:</strong> The let keyword is an improved version
+                  of the var keyword. The scope of a let variable is block
+                  scope. It can be updated but cannot be re-declared into the
+                  scope. It can be declared without initialization. <br />
+                  <strong>Const:</strong> The const keyword has all the
+                  properties that are the same as the let keyword, except the
+                  user cannot update it. The scope of a const variable is block
+                  scope. It cannot be updated or re-declared into the scope. It
+                  cannot be declared without initialization.
                 </div>
               </div>
             </div>
@@ -109,7 +119,8 @@
                   aria-expanded="false"
                   aria-controls="collapseTwo"
                 >
-                  What are the difference between bootstrap and Tailwind?
+                  What are the difference between Arrow function and Regular
+                  function?
                 </button>
               </h2>
               <div
@@ -119,22 +130,41 @@
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  <strong>Bootstrap</strong> is an open-source framework that is
-                  used to design responsive websites better, faster, and easier.
-                  It is a beginner-friendly and the most popular open-source
-                  framework that includes HTML, CSS, and JavaScript.
+                  In JavaScript, Function can be declared in different ways.
+                  JavaScript's arrow functions might seem the same as regular
+                  functions on the surface, but they have some very important
+                  differences: <br />
+                  <strong>Syntactical differences:</strong> <br />The first and
+                  most obvious difference between arrow functions and regular
+                  functions is their syntax. Not only do they look different,
+                  but arrow functions also provide an implicit return shorthand
+                  and allow parenthesis around a single argument to be omitted.
                   <br /><br />
-                  <strong
-                    >Tailwind CSS is a utility-based framework based on
-                    CSS</strong
-                  >. It provides a catalog of CSS classes that makes the process
-                  of styling more convenient. Tailwind is not a UI Kit like
-                  Bootstrap, Foundation, or Bulma. It does not provide
-                  ready-made design blocks. It simply provides classes to make
-                  custom designs and prevents the user from writing lengthy
-                  code, such as that in Vanilla CSS.
+                  <strong>this value (execution context):</strong> <br />
+                  Inside a regular function, execution context (i.e. the value
+                  of this) is dynamic. This means that the value of this depends
+                  on how the function was invoked (simple invocation, method
+                  invocation, indirect invocation or constructor invocation). On
+                  the other hand, an arrow function does not define its own
+                  execution context. This results in an arrow function's this
+                  being resolved lexically (i.e. the scope in which the arrow
+                  function was defined). <br />
+                  <br />
+                  <strong>Methods</strong> Due to arrow functions not defining
+                  their own execution context, they're not well-suited for usage
+                  as methods. However, thanks to the Class fields proposal,
+                  arrow functions can be used as methods inside classes, if your
+                  environment supports it. <br />
+                  <br />
+                  <strong>Constructors</strong> Regular functions can be used as
+                  constructors, using the new keyword. Yet another consequence
+                  of the lexical resolution of this inside arrow functions is
+                  that they cannot be used as constructors. Using new with an
+                  arrow function results in a TypeError.
                 </div>
-              </div>
+                <br />
+                <br />
+                
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
@@ -146,7 +176,7 @@
                   aria-expanded="false"
                   aria-controls="collapseThree"
                 >
-                  What is CSS Box Model?
+                  What are the difference between Map, forEach, Filter and Find?
                 </button>
               </h2>
               <div
@@ -156,14 +186,10 @@
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  The <strong>CSS Box Model</strong> is a container that
-                  contains multiple properties including borders, margin,
-                  padding, and the content itself. It is used to create the
-                  design and layout of web pages. It can be used as a toolkit
-                  for customizing the layout of different elements. The web
-                  browser renders every element as a rectangular box according
-                  to the CSS box model. Box-Model has multiple properties in CSS
-                </div>
+                  <strong>Map: </strong>The map() method loops through each element in array and calls the provided function for each element. This method creates a new array and doesn’t alter the original array. <br>
+                  <strong>forEach: </strong> forEach() is used to execute the same code on every element in an array but does not change the array and it returns undefined.<br>
+                  <strong>Filter: </strong> The filter() method in JavaScript creates a new array with the elements that satisfies the provided condition. This method calls a provided function for each element in array and verifies the condition given in the provided function and passes only those elements that satisfy the given condition. <br>
+                  <strong>Find: </strong> find() method to find the first element of an array that satisfies a provided testing function.
               </div>
             </div>
             <div class="accordion-item">
@@ -176,7 +202,7 @@
                   aria-expanded="false"
                   aria-controls="collapseFour"
                 >
-                  What is Semantic tag?
+                  Why do we use template string?
                 </button>
               </h2>
               <div
@@ -186,12 +212,9 @@
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  <strong>Semantic HTML elements</strong> are those that clearly
-                  describe their meaning in a human and machine-readable way.
-                  Elements such as "header" , "footer" and "article"etc... are
-                  all considered semantic because they accurately describe the
-                  purpose of the element and the type of content that is inside
-                  them.
+                    <strong>1.</strong> A single set of back ticks <strong>(` `)</strong> to enclose the entire line. <br>
+                    <strong>2.</strong> Direct interpolation of a variable, in place in the string. <br>
+                    <strong>3.</strong> The ability to write multiple lines in a single string.
                 </div>
               </div>
             </div>
