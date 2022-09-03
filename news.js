@@ -23,11 +23,12 @@ const loadNews = (news_id) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${news_id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayNews(data.data));
+    .then((data) => displayNews(data.data))
+    .catch((err) => console.log(err));
 };
 
 const displayNews = (items) => {
-  console.log(items);
+  //console.log(items);
   const alertMsg = document.getElementById("alert-msg");
   if (items.length > 0) {
     alertMsg.classList.remove("d-none");
@@ -54,11 +55,6 @@ const displayNews = (items) => {
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">${news.title}</h5>
-          <p class="card-text">${
-            news.details.length > 1500
-              ? news.details.slice(0, 1500) + "..."
-              : news.details
-          }</p>
           <p class="card-text">
             <small class="text-muted">Published on: ${
               news.author.published_date
@@ -66,6 +62,12 @@ const displayNews = (items) => {
                 : "data not found"
             }</small>
           </p>
+          <p class="card-text">${
+            news.details.length > 580
+              ? news.details.slice(0, 580) + "..."
+              : news.details
+          }</p>
+          
         </div>
         <div class="mb-1 d-flex gap-1 position-bottom-0">
           <div class="ms-3 d-flex flex-column flex-md-row align-items-center justify-content-center">
@@ -109,11 +111,12 @@ const loadDetailsNews = (news_id) => {
   // console.log(url);
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayDetailsNews(data.data[0]));
+    .then((data) => displayDetailsNews(data.data[0]))
+    .catch((err) => console.log(err));
 };
 
 const displayDetailsNews = (news) => {
-  console.log(news);
+  // console.log(news);
   const modalTitle = document.getElementById("modal-title");
   modalTitle.innerText = news.title;
   const modalBody = document.getElementById("modal-body");
@@ -139,9 +142,7 @@ const displayDetailsNews = (news) => {
             <div>
             <p class="mt-3"><small>${
               news.author.name ? news.author.name : "no data found"
-            }</small>, <small>published on: </small>${
-    news.author.published_date ? news.author.published_date : "no data found"
-  }</small></p></div>
+            }</small></div>
           </div>
           
           <p class="mt-3">${news.details}</p>
@@ -149,6 +150,15 @@ const displayDetailsNews = (news) => {
         </div>
   
   `;
+};
+
+const toggleSpinner = (isLoading) => {
+  const loadingSpinner = document.getElementById("loading-spinner");
+  if (isLoading) {
+    loadingSpinner.classList.remove("d-none");
+  } else {
+    loadingSpinner.classList.add("d-none");
+  }
 };
 
 loadNews("04");
