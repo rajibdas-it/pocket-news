@@ -44,7 +44,9 @@ const displayNews = (items) => {
     alertMsg.classList.remove("d-none");
     alertMsg.innerText = `No items found`;
   }
-
+  // const sortItems = items.sort((a, b) => {
+  //   return b - a;
+  // });
   const newsSection = document.getElementById("news-section");
   newsSection.textContent = "";
   items.forEach((news) => {
