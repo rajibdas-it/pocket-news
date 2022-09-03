@@ -84,7 +84,9 @@ const displayNews = (items) => {
               class="img-fluid rounded-circle p-2"
               alt=""
             />
-            <h3>${news.author.name ? news.author.name : "no data found"}</h3>
+            <p class="fw-bold">${
+              news.author.name ? news.author.name : "no data found"
+            }</p>
           </div>
           <div class="ms-3">
             <p><i class="fa-solid fa-eye"></i>${
