@@ -36,6 +36,7 @@ const loadNews = (news_id) => {
 const displayNews = (items) => {
   //console.log(items);
   const alertMsg = document.getElementById("alert-msg");
+  alertMsg.classList.add("d-none");
   if (items.length > 0) {
     alertMsg.classList.remove("d-none");
     alertMsg.innerText = `${items.length} items found`;
@@ -123,11 +124,9 @@ const loadDetailsNews = (news_id) => {
 };
 
 const displayDetailsNews = (news) => {
-  // console.log(news);
   const modalTitle = document.getElementById("modal-title");
   modalTitle.innerText = news.title;
   const modalBody = document.getElementById("modal-body");
-  // const modalFooter = document.getElementById("modal-footer");
   modalBody.innerHTML = `
         <div class="row">
           <div class="col-10 mx-auto w-100">
@@ -168,7 +167,5 @@ const toggleSpinner = (isLoading) => {
   }
 };
 
-// toggleSpinner(true);
-// toggleSpinner(false);
-loadNews("04");
+loadNews("04", false);
 loadCategory();
