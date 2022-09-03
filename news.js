@@ -19,12 +19,18 @@ const displayCategoryName = (categories) => {
 };
 
 const loadNews = (news_id) => {
-  //console.log(news_id);
   const url = `https://openapi.programming-hero.com/api/news/category/${news_id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayNews(data.data))
+    //Using set time out to show loading spinner work.
+    // .then((data) => displayNews(data.data))
+    .then((data) =>
+      setTimeout(() => {
+        displayNews(data.data);
+      }, 1000)
+    )
     .catch((err) => console.log(err));
+  toggleSpinner(true);
 };
 
 const displayNews = (items) => {
@@ -104,6 +110,7 @@ const displayNews = (items) => {
     `;
     newsSection.appendChild(newsDiv);
   });
+  toggleSpinner(false);
 };
 
 const loadDetailsNews = (news_id) => {
@@ -154,12 +161,14 @@ const displayDetailsNews = (news) => {
 
 const toggleSpinner = (isLoading) => {
   const loadingSpinner = document.getElementById("loading-spinner");
-  if (isLoading) {
+  if (isLoading === true) {
     loadingSpinner.classList.remove("d-none");
   } else {
     loadingSpinner.classList.add("d-none");
   }
 };
 
+// toggleSpinner(true);
+// toggleSpinner(false);
 loadNews("04");
 loadCategory();
