@@ -2,19 +2,20 @@ const loadCategory = () => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayCategoryName(data.data.news_category));
+    .then((data) => displayCategory(data.data.news_category))
+    .catch((err) => console.log(err));
 };
 
-const displayCategoryName = (categories) => {
-  //   console.log(categories);
-  const categoriesSection = document.getElementById("categories-section");
+const displayCategory = (categories) => {
+  const categoriesDiv = document.getElementById("show-category");
   categories.forEach((category) => {
-    categoryDiv = document.createElement("div");
-    categoryDiv.classList.add("col");
-    categoryDiv.innerHTML = `
-    <button class="btn p-2 mb-3 fw-bold" onclick="loadNews('${category.category_id}')">${category.category_name}</button>
+    const { category_id, category_name } = category;
+    const li = document.createElement("li");
+    li.classList.add("nav-item");
+    li.innerHTML = `
+    <a onclick="loadNews('${category_id}')" class="nav-link text-black fw-semibold btn btn-outline-info m-1" href="#">${category_name}</a>
     `;
-    categoriesSection.appendChild(categoryDiv);
+    categoriesDiv.appendChild(li);
   });
 };
 
@@ -22,7 +23,7 @@ const loadNews = (news_id) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${news_id}`;
   fetch(url)
     .then((res) => res.json())
-    //Using set time out to show loading spinner work.
+    //Using setTimeOut function to show loading spinner works.
     // .then((data) => displayNews(data.data))
     .then((data) =>
       setTimeout(() => {
