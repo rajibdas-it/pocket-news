@@ -194,7 +194,7 @@ const displayNewsByCategory = (items) => {
               </p>
             </div>
             <div class="card-footer d-flex justify-content-between flex-row">
-              <div class="d-flex justify-content-around flex-row">
+              <div class="d-flex flex-column flex-md-row justify-content-around">
                 <img
                   style="width: 50px; height: 50px"
                   class="rounded-circle img-fluid img-thumbnail"

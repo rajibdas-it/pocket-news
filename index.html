@@ -42,7 +42,7 @@
             id="navbarSupportedContent"
           >
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item me-2">
+              <li class="nav-item m-3 w-75 me-md-2">
                 <a
                   class="nav-link btn btn-outline-info"
                   aria-current="page"
@@ -50,7 +50,7 @@
                   >News</a
                 >
               </li>
-              <li class="nav-item me-2">
+              <li class="nav-item m-3 w-75 me-md-2">
                 <a class="nav-link btn btn-outline-info" href="blog.html"
                   >Bolgs</a
                 >
@@ -86,33 +86,38 @@
     </header>
 
     <main class="container mt-5">
-      <section class="mb-5">
-        <div class="d-flex justify-content-between">
-          <div class="d-flex justify-content-evenly">
-            <div class="row align-content-center">
-              <div class="col-6">
-                <label for="">Sort By View</label>
+      <div class="continer">
+        <section class="mb-5">
+          <div
+            class="d-flex flex-column flex-sm-row flex-md-row justify-content-between"
+          >
+            <div class="d-flex justify-content-evenly">
+              <div class="row align-content-center">
+                <div class="col-5">
+                  <label for=""><small>Sort By View</small></label>
+                </div>
+                <div class="col-7">
+                  <select
+                    class="form-select"
+                    aria-label="Disabled select example"
+                    disabled
+                  >
+                    <option selected>Default</option>
+                  </select>
+                </div>
+                <!-- <p class="fw-bold">Sort By View</p> -->
               </div>
-              <div class="col-6">
-                <select
-                  class="form-select"
-                  aria-label="Disabled select example"
-                  disabled
-                >
-                  <option selected>Default</option>
-                </select>
-              </div>
-              <!-- <p class="fw-bold">Sort By View</p> -->
+            </div>
+            <div>
+              <button class="btn btn-info text-white fw-bold m-2" disabled>
+                Today's Pick
+              </button>
+              <button class="btn btn-outline-info" disabled>Trending</button>
             </div>
           </div>
-          <div>
-            <button class="btn btn-info text-white fw-bold" disabled>
-              Today's Pick
-            </button>
-            <button class="btn btn-outline-info" disabled>Trending</button>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
+
       <!-- spinner section start -->
       <section>
         <div
