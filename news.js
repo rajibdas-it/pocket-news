@@ -13,7 +13,7 @@ const displayCategory = (categories) => {
     const li = document.createElement("li");
     li.classList.add("nav-item");
     li.innerHTML = `
-    <a onclick="loadNews('${category_id}')" class="nav-link text-black fw-semibold btn btn-outline-info m-1" href="#">${category_name}</a>
+    <a onclick="loadNewsByCategory('${category_id}')" class="nav-link text-black fw-semibold btn btn-outline-info m-1" href="#">${category_name}</a>
     `;
     categoriesDiv.appendChild(li);
   });
@@ -22,7 +22,7 @@ const displayCategory = (categories) => {
 //Default news show when home page loading
 
 const loadDefaultNews = () => {
-  const url = `https://openapi.programming-hero.com/api/news/category/08`;
+  const url = `https://openapi.programming-hero.com/api/news/category/01`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayDefaultNews(data.data))
@@ -52,7 +52,7 @@ const displayDefaultNews = (items) => {
             <img
               style="height: 300px"
               src=${thumbnail_url ? thumbnail_url : "no data found"}
-              class="img-fluid rounded-start w-100 "
+              class="img-fluid rounded-start w-100 h-100"
               alt="..."
             />
           </div>
@@ -123,7 +123,7 @@ const displayDefaultNews = (items) => {
 };
 
 // news show click on category button
-const loadNews = (news_id) => {
+const loadNewsByCategory = (news_id) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${news_id}`;
   fetch(url)
     .then((res) => res.json())
@@ -131,14 +131,14 @@ const loadNews = (news_id) => {
     // .then((data) => displayNews(data.data))
     .then((data) =>
       setTimeout(() => {
-        displayNews(data.data);
+        displayNewsByCategory(data.data);
       }, 500)
     )
     .catch((err) => console.log(err));
   toggleSpinner(true);
 };
 
-const displayNews = (items) => {
+const displayNewsByCategory = (items) => {
   // alertMsg(items);
   //console.log(items);
 
@@ -173,7 +173,7 @@ const displayNews = (items) => {
             <img
               style="height: 300px"
               src=${thumbnail_url ? thumbnail_url : "no data found"}
-              class="img-fluid rounded-start w-100 "
+              class="img-fluid rounded-start w-100 h-100"
               alt="..."
             />
           </div>
@@ -313,5 +313,6 @@ const toggleSpinner = (isLoading) => {
 // };
 
 // loadNews("08");
+
 loadDefaultNews();
 loadCategory();
